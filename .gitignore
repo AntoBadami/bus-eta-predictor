@@ -1,2 +1,4 @@
 data
 .venv
+data/GTFS.zip
+node_modules/
