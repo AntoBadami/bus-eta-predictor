@@ -2,7 +2,7 @@
   <img src="images/mbta_logo.png" alt="Logo de la empresa" width="200" />
 </p>
 
-# Estimación de ETA - Ruta de Bus Harvard Square - Nubian Station
+# ⏱️ Estimación de ETA - Ruta de Bus Harvard Square - Nubian Station
 
 **Asignatura:** Inteligencia Artificial - Ingeniería en Informática (CRUC - IUA - UNDEF)  
 **Docente:** Ing. Hernando Alexis González
