@@ -117,7 +117,7 @@ con el entorno virtual creado previamente y activado:
  uvicorn app.main:app
 ```
 
-*(Requiere ubicar `paradas_distancia_traza.csv` dentro de la carpeta `/data`, asi como el archivo GTFS.zip descargado desde https://www.mbta.com/developers/gtfs).*
+*(Requiere ubicar `paradas_distancia_traza.csv` (descargable desde https://drive.google.com/file/d/1nDVbtWAsbKG7WLKYq4cX7wwbgH5L9mqE/view?usp=drive_link) dentro de la carpeta `/data`, asi como el archivo GTFS.zip descargado desde https://www.mbta.com/developers/gtfs).*
 
 Es necesario crear un archivo .env (basarse en .env.example) dentro del back donde se colocaran las API key de Tomtom y MBTA.
 Dichas keys se pueden gestionar en https://my.tomtom.com/ y https://api-v3.mbta.com/portal respectivamente
