@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/mbta_logo.png" alt="Logo de la empresa" width="200" />
+</p>
+
 # Estimación de ETA - Ruta de Bus Harvard Square - Nubian Station
 
 **Asignatura:** Inteligencia Artificial - Ingeniería en Informática (CRUC - IUA - UNDEF)  
@@ -55,8 +59,8 @@ El proyecto está distribuido de la siguiente forma:
 ├── models/                 # Artefactos de modelos entrenados serializados
 ├── notebooks/              # Cuadernos Jupyter de exploración (EDA), prototipado y pipelines
 ├── src/                    # Código fuente modularizado
-│   ├── backend/            # Lógica de procesamiento, modelo e inferencia / API
-│   └── frontend/           # Interfaz de usuario
+│   ├── back/               # Lógica de procesamiento, modelo e inferencia / API
+│   └── front/              # Interfaz de usuario
 ├── .gitignore              # Exclusión de /data, entornos virtuales y temporales
 ├── requirements.txt        # Dependencias con versiones fijadas (version pinning)
 └── README.md               # Documentación principal del proyecto
@@ -99,19 +103,24 @@ source venv/bin/activate
 
 ```
 
-3. **Instalar dependencias exactas (version pinning):**
+3. **Instalar dependencias para implementar /notebooks:**
 ```bash
 pip install -r requirements.txt
 ```
 ## 🚀 6. Ejecución y Uso del Sistema (MVP)
 
 1. **Ejecutar el backend**
-
+con el entorno virtual creado previamente y activado:
 ```bash
- uvicorn src.backend.main:app
+ cd src/back
+ pip install -r requirements.txt
+ uvicorn app.main:app
 ```
 
-*(Requiere ubicar `dataset.csv` y `paradas_distancia_traza.csv` dentro de la carpeta `/data`, asi como el archivo GTFS.zip descargado desde https://www.mbta.com/developers/gtfs).*
+*(Requiere ubicar `paradas_distancia_traza.csv` dentro de la carpeta `/data`, asi como el archivo GTFS.zip descargado desde https://www.mbta.com/developers/gtfs).*
+
+Es necesario crear un archivo .env (basarse en .env.example) dentro del back donde se colocaran las API key de Tomtom y MBTA.
+Dichas keys se pueden gestionar en https://my.tomtom.com/ y https://api-v3.mbta.com/portal respectivamente
 
 2. **Ejecutar frontend:**
 ```bash
@@ -134,3 +143,8 @@ pip install -r requirements.txt
   - **Comportamiento por Tramo de Distancia:** El error absoluto aumenta de forma proporcional a la distancia restante debido a la acumulación de incertidumbre vial (semáforos y congestión), pasando de **85.42 s** en tramos cercanos (`< 1 km`) a **135.84 s** en tramos medios (`1 - 3 km`) y **213.39 s** en distancias largas (`> 3 km`). Por el contrario, el error relativo (MAPE) mejora a medida que el trayecto es más largo (bajando del **30.05%** en `< 1 km` al **14.27%** en `> 3 km`), ya que en distancias muy cortas las demoras puntuales en parada tienen un peso porcentual alto sobre un ETA total pequeño.
   - **Variables Determinantes:** Las variables con mayor peso en las decisiones del modelo son las componentes cíclicas horarias (`hora_sin`, `hora_cos`), la ubicación y distancia pendiente en la traza (`distancia_en_traza`, `distancia_restante_km`, `progreso_recorrido`) y las condiciones ambientales (`temperature_2m`, `relative_humidity_2m`), confirmando que la hora pico y la posición exacta en el recorrido son los principales factores de dispersión del tiempo de viaje.
 
+## 🖼️ 8. Capturas de la Interfaz
+
+### Pantalla Principal (Dashboard)
+Vista general de las métricas y accesos rápidos.
+![Dashboard principal](/images/front.png)
