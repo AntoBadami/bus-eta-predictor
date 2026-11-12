@@ -1,4 +1,5 @@
 data
 .venv
-data/GTFS.zip
 node_modules/
+__pycache__
+
