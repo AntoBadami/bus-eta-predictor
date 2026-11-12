@@ -1,8 +1,11 @@
 fastapi
 uvicorn[standard]
-requests
+httpx
 pandas
+numpy
 shapely
 geopy
-python-dotenv
+lightgbm
+scikit-learn
 joblib
+python-dotenv
