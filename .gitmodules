@@ -1,0 +1,3 @@
+[submodule "src/data-harvester-bot"]
+	path = src/data-harvester-bot
+	url = https://github.com/TwBenjaminVargas/MBTA-bus-data-harvester-bot.git
